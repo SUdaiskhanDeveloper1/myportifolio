@@ -140,7 +140,7 @@ export default function Sidebar() {
                   link.click();             
                 }}
               >
-                Download Resume
+                Download My CV
               </Button>
             </MotionBox>
 
