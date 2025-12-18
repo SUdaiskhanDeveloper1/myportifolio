@@ -231,7 +231,7 @@ export default function SkillsCards() {
 
       case "Resume":
         return (
-          <Box p={4} rounded="lg" h={{ base: "125px" }}>
+          <Box p={4} rounded="lg" >
             <Heading size="2xl" mb={2} >
               MY RESUME
             </Heading>
@@ -491,21 +491,28 @@ export default function SkillsCards() {
     <>
       <MotionBox
         as={HStack}
-        spacing={3}
+        // spacing={0}
+        
+        
         // bg="red"
-        px={{ base: 2, md: 2, }}
-        py={0}
+        gap={0}
+        // space={0}
+        // px={{ base: 1, md: 2, }}
+        // py={0}
         rounded="md"
+        ml={{ base: "7%", sm: "0%", md: "8%", lg: "8%" }}
         // boxShadow="sm"
-        w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
+        w={{ base: "90%", sm: "100%", md: "100%", lg: "90%" }}
+        //  h={{ base: "90%", sm: "100%", md: "100%", lg: "10%" }}
         // ml={{ base: 0, }}
         mt={{ base: "5%", sm: "8%", md: "8.5%", lg: "4%", }}
         // mr={{ base: 0, }}
         // flexWrap="wrap"
-        justifyContent={{ base: "center", md: "right", lg: "end" }}
+        justifyContent={{ base: "center",small:"end", md: "center", lg: "end" }}
       // initial={{ opacity: 0 }}
       // animate={{ opacity: 1 }}
       // transition={{ duration: 0.8 }}
+      // bg={"red"}
       >
         {menu.map((item, i) => (
           <MotionBox
@@ -513,8 +520,10 @@ export default function SkillsCards() {
             key={item.label}
             // px={2}
             // py={2}
+            
             p={3}
             bg={activeTab === item.label ? "#F65C12" : " #c5d0ddff"}
+            
             rounded="md"
             cursor="pointer"
             whileHover={{ scale: 0.9 }}
