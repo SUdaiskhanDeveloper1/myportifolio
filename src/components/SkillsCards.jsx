@@ -350,7 +350,7 @@ export default function SkillsCards() {
               MY WORK
             </Heading>
 
-            <SimpleGrid columns={{ base: 1, md: 2 }} gap={6}>
+            <SimpleGrid columns={{ base: 1, md: 1 }} gap={6}>
               {workData.map((project, idx) => (
                 <Box
                   key={idx}
@@ -546,8 +546,9 @@ export default function SkillsCards() {
 
 
       <MotionBox
-        w={{ base: "95%", md: "80%", lg: "90%" }}
+        w={{ base: "100%", md: "80%", lg: "90%" }}
         h={{ base: "auto", lg: "68vh" }}
+        // bg={"red"}
         overflowY={{ base: "visible", md: "auto", lg: "auto" }}
         sx={{
           scrollbarWidth: { lg: "none" },

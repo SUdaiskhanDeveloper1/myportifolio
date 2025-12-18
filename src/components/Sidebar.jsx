@@ -32,7 +32,7 @@ export default function Sidebar() {
 
   return (
     <MotionBox
-      height={{ base: "95%", sm: "96%", md: "94%", lg: "91%" }}
+      height={{ base: "100%", sm: "96%", md: "98%", lg: "91%" }}
       // width={sidebarWidth}
       width={{ base: "88%", sm: "80%", md: "45%", lg: "25%" }}
       bg="white"
@@ -100,11 +100,11 @@ export default function Sidebar() {
 
           // bg="red"
           rounded="xl"
-          minH={{ base: "10vh", sm: "18vh", md: "18vh", lg: "28vh" }}
+          minH={{ base: "10vh", sm: "18vh", md: "18vh", lg: "35vh" }}
           w={{ base: "90%", sm: "90%", md: "90%", lg: "90%" }}
           // minW={{ base: "100%", md: 60 }}
           gap={0}
-          p={5}
+          p={4}
 
         >
           <VStack
@@ -128,28 +128,21 @@ export default function Sidebar() {
               </VStack>
             </HStack>
 
+
             <HStack gap={6}>
-              <Icon
-                as={FiMail}
-                boxSize={{ base: 6, md: 7, lg: 6 }}
-                color="orange.400"
-              />
+              <Icon as={FiMail} boxSize={{ base: 6, md: 7, lg: 6 }} color="orange.400" />
 
               <VStack alignItems="flex-start" spacing={2} gap={0}>
-                <Text fontWeight="bold" fontSize={{ base: "xl", md: "base", lg: "sm" }}>
-                  Email:
-                </Text>
-                <Text fontSize={{ base: "xl",sm:"base", md: "base", lg: "md" }}>
-                  Sudais875@gmail.com
-                </Text>
+                <Text fontWeight="bold" fontSize={{ base: "xl", md: "base", lg: "sm" }}>Email:</Text>
+                <Text fontSize={{ base: "xl",sm:"base", md: "base", lg: "md" }}>Sudais875@gmail.com</Text>
               </VStack>
-
             </HStack>
+             
             <HStack gap={6}>
               <Icon as={FiMapPin} boxSize={{ base: "6", md: "7", lg: "6" }} color="orange.400" />
               <VStack alignItems="flex-start" spacing={2} gap={0}>
-                <Text fontWeight="bold" fontSize={{ base: "1xl", md: "base", lg: "md" }}>Location:</Text>
-                <Text fontSize={{ base: "1xl", md: "base", lg: "md" }}>Islamabad, Pakistan</Text>
+                <Text fontWeight="bold" fontSize={{ base: "xl", md: "base", lg: "sm" }}>Location:</Text>
+                <Text fontSize={{ base: "xl", md: "base", lg: "md" }}>Islamabad, Pakistan</Text>
               </VStack>
             </HStack>
 

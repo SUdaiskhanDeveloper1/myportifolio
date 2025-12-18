@@ -11,18 +11,13 @@ export default function Header() {
 
 
   return (
-    <Box justify="space-around" w="100%" bg={"#f2f7fe"}   position="sticky"
-       top="0px"  
-              zIndex="1" >
+    <Box justify="space-around" w="100%"   bg="  #b9c5deff"      
+      // zIndex={100} position="fixed" 
+      >
     <HStack justify="space-between" 
       padding={5}
       // rounded={"lg"}
-      // zIndex="10"
-      // bg="  #b9c5deff"
-       mb={4}
-      
-       >
-        
+       mb={4}>
 
       <Heading
         fontSize="3xl"
