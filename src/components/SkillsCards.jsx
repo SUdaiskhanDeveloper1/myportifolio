@@ -235,10 +235,10 @@ export default function SkillsCards() {
             <Heading size="2xl" mb={2} >
               MY RESUME
             </Heading>
-           
+
 
             <VStack align="stretch" gap={"5"} spacing={10}>
-              
+
               <HStack align="stretch" gap={"5"} spacing={8} wrap="wrap">
                 {resumeData
                   .filter(
@@ -290,7 +290,7 @@ export default function SkillsCards() {
               </HStack>
 
               <HStack align="stretch" spacing={8} gap={"5"} wrap="wrap">
-                
+
                 <Box
                   flex="1"
                   minW={{ base: "100%", md: "48%" }}
@@ -350,7 +350,7 @@ export default function SkillsCards() {
               MY WORK
             </Heading>
 
-            <SimpleGrid columns={{ base: 1, md: 1 }} gap={6}>
+            <SimpleGrid columns={{ base: 1, sm: 2, md: 1, lg: 3 }} gap={6}>
               {workData.map((project, idx) => (
                 <Box
                   key={idx}
@@ -362,14 +362,14 @@ export default function SkillsCards() {
                   transition="all 0.3s ease"
                 >
                   <Image
-                    src={project.image} 
+                    src={project.image}
                     alt={project.title}
                     h="25vh"
                     w="100%"
-                    objectFit="fill"
+                    objectFit="-moz-initial"
                   />
 
-                  
+
                   <Box p={3} borderLeft="4px solid orange.500">
                     <Heading size="md" mb={2}>
                       {project.title}
@@ -379,7 +379,7 @@ export default function SkillsCards() {
                       {project.desc}
                     </Text>
 
-                    
+
                     <HStack spacing={2} wrap="wrap">
                       {project.tech.map((tech) => (
                         <TechTag key={tech} label={tech} />
@@ -398,18 +398,27 @@ export default function SkillsCards() {
             <Heading size="2xl" mb={2}>
               GET IN TOUCH
             </Heading>
+            <Text
+              maxW="600px"        
+              mx="auto"           
+              textAlign="center"  
+            >
+              I am always open to discussing new projects,
+              opportunities in tech world, Partnership & more so mentorship.
+            </Text>
+
 
             <Box maxW={{ base: "100%", md: "400px" }} mx="auto" textAlign="left">
-              <VStack spacing={4} align="stretch">
+              <VStack spacing={0} align="stretch">
                 <Box>
-                  <Text fontWeight="bold" mb={2}>
+                  <Text fontWeight="bold" >
                     Full Name:
                   </Text>
                   <Input
                     placeholder="Enter your name"
                     bg="gray.100"
                     border="none"
-                    p={3}
+                    p={1}
                     value={formData.name}
                     onChange={(e) =>
                       setFormData({ ...formData, name: e.target.value })
@@ -418,7 +427,7 @@ export default function SkillsCards() {
                 </Box>
 
                 <Box>
-                  <Text fontWeight="bold" mb={2}>
+                  <Text fontWeight="bold" >
                     Email:
                   </Text>
                   <Input
@@ -426,7 +435,7 @@ export default function SkillsCards() {
                     placeholder="Enter your email"
                     bg="gray.100"
                     border="none"
-                    p={3}
+                    p={1}
                     value={formData.email}
                     onChange={(e) =>
                       setFormData({ ...formData, email: e.target.value })
@@ -435,14 +444,14 @@ export default function SkillsCards() {
                 </Box>
 
                 <Box>
-                  <Text fontWeight="bold" mb={2}>
-                    Contact Number:
+                  <Text fontWeight="bold" >
+                    Contact No:
                   </Text>
                   <Input
                     placeholder="Enter your phone number"
                     bg="gray.100"
                     border="none"
-                    p={3}
+                    p={1}
                     value={formData.phone}
                     onChange={(e) =>
                       setFormData({ ...formData, phone: e.target.value })
@@ -451,14 +460,14 @@ export default function SkillsCards() {
                 </Box>
 
                 <Box>
-                  <Text fontWeight="bold" mb={2}>
+                  <Text fontWeight="bold" >
                     Your Query:
                   </Text>
                   <Textarea
                     placeholder="Enter your message"
                     bg="gray.100"
                     border="none"
-                    p={3}
+                    p={1}
                     resize="none"
                     value={formData.message}
                     onChange={(e) =>
@@ -492,8 +501,8 @@ export default function SkillsCards() {
       <MotionBox
         as={HStack}
         // spacing={0}
-        
-        
+
+
         // bg="red"
         gap={0}
         // space={0}
@@ -508,7 +517,7 @@ export default function SkillsCards() {
         mt={{ base: "5%", sm: "8%", md: "8.5%", lg: "4%", }}
         // mr={{ base: 0, }}
         // flexWrap="wrap"
-        justifyContent={{ base: "center",small:"end", md: "center", lg: "end" }}
+        justifyContent={{ base: "center", small: "end", md: "center", lg: "end" }}
       // initial={{ opacity: 0 }}
       // animate={{ opacity: 1 }}
       // transition={{ duration: 0.8 }}
@@ -520,10 +529,10 @@ export default function SkillsCards() {
             key={item.label}
             // px={2}
             // py={2}
-            
+
             p={3}
             bg={activeTab === item.label ? "#F65C12" : " #c5d0ddff"}
-            
+
             rounded="md"
             cursor="pointer"
             whileHover={{ scale: 0.9 }}
@@ -537,8 +546,8 @@ export default function SkillsCards() {
           // transition={{ delay: i * 0.5, duration: 0.1 }}
           >
             <VStack gap={0}>
-              <Box as={item.icon} boxSize={{ lg: "8" }} />
-              <Text fontWeight="bold" color={"black"} space={0} fontSize={{ base: "100%", md: "80%", lg: "90%" }}>{item.label}</Text>
+              <Box as={item.icon} boxSize={{ base:8, lg: "8" }} />
+              <Text fontWeight="bold" color={"black"} space={0} fontSize={{ base: "85%",sm:"50%", md: "60%", lg: "90%" }}>{item.label}</Text>
             </VStack>
           </MotionBox>
         ))}
