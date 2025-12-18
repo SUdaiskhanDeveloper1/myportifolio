@@ -13,6 +13,8 @@ import {
   Image,
   Dialog
 } from "@chakra-ui/react";
+import pdmas from "../assets/images/pdmas.png";
+import ndma  from "../assets/images/ndma.png";
 
 import { FaCode, FaMobileAlt, FaPenFancy, FaUsers } from "react-icons/fa";
 import { MdHome, MdWork, MdDescription, MdContactMail } from "react-icons/md";
@@ -131,19 +133,19 @@ const workData = [
   {
     title: "Hostel Management System",
     desc: "A complete system for managing hostels, rooms, students, and payments.",
-    image: "/src/assets/images/ndma.png",
+    image: ndma,
     tech: ["Next.js", "Node.js", "MongoDB"],
   },
   {
     title: "Weather Forecast Dashboard",
     desc: "Real-time weather forecasting using ML and modern UI.",
-    image: "src/assets/images/pdmas.png",
+    image: pdmas,
     tech: ["React", "API", "Chart.js"],
   },
   {
     title: "Weather Forecast Dashboard",
     desc: "Real-time weather forecasting using ML and modern UI.",
-    image: "src/assets/images/pdmas.png",
+    image: pdmas,
     tech: ["React", "API", "Chart.js"],
   },
 ];
