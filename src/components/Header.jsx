@@ -1,43 +1,25 @@
-import {
-  HStack,
-  Heading,
-  IconButton,
-  Box
-
-} from "@chakra-ui/react";
-
+import { HStack, Heading, Box } from "@chakra-ui/react";
+import { useState, useEffect } from "react";
 
 export default function Header() {
+  const [darkMode, setDarkMode] = useState(false);
 
+  useEffect(() => {
+    document.body.classList.toggle("dark-mode", darkMode);
+  }, [darkMode]);
 
   return (
-    <Box justify="space-around" w="100%"   bg="  #b9c5deff"      
-      // zIndex={100} position="fixed" 
-      >
-    <HStack justify="space-between" 
-      padding={5}
-      // rounded={"lg"}
-       mb={4}>
+    <Box w="100%" bg="var(--bg-color)">
+      <HStack justify="space-between" p={5} mb={4}>
+        <Heading fontSize="3xl" fontWeight="bold" color="var(--text-color)">
+          <span style={{ color: "#ff8c00" }}>My Profile</span>
+        </Heading>
 
-      <Heading
-        fontSize="3xl"
-        fontWeight="bold"
-        color={("gray.800", "gray.100")}
-      >
-        <span style={{ color: "#ff8c00" }}>My Profile</span>
-      </Heading>
-
-
-      <IconButton
-
-        aria-label="toggle theme"
-
-        rounded="full"
-        bg={("white", "gray.700")}
-        boxShadow="md"
-        _hover={{ bg: ("gray.100", "gray.600") }}
-      />
-    </HStack>
+        <Box className="theme-toggle" onClick={() => setDarkMode(!darkMode)}>
+          <input type="checkbox" checked={darkMode} readOnly />
+          <label className="switch"></label>
+        </Box>
+      </HStack>
     </Box>
   );
 }

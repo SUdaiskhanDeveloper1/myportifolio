@@ -191,7 +191,7 @@ export default function SkillsCards() {
               // zIndex="1"
               bg="white"
             >
-              <Heading size="2xl">ABOUT ME</Heading>
+              <Heading color="gray.700" size="2xl">ABOUT ME</Heading>
               <Text color="gray.700" mt={2}>
                 I'm a frontend developer specializing in building dynamic, responsive,
                 & user-friendly web applications using React, Next.js, HTML, CSS, &
@@ -212,6 +212,7 @@ export default function SkillsCards() {
                   <Box
                     key={item.title}
                     bg={item.color}
+                    color="gray.700"
                     p={6}
                     rounded="xl"
                     boxShadow="sm"
@@ -241,7 +242,7 @@ export default function SkillsCards() {
 
             <VStack align="stretch" gap={"5"} spacing={10}>
 
-              <HStack align="stretch" gap={"5"} spacing={8} wrap="wrap">
+              <HStack align="stretch" gap={"5"} spacing={8} wrap="wrap" color="gray.700">
                 {resumeData
                   .filter(
                     (section) =>
@@ -352,7 +353,7 @@ export default function SkillsCards() {
               MY WORK
             </Heading>
 
-            <SimpleGrid columns={{ base: 1, sm: 2, md: 1, lg: 3 }} gap={6}>
+            <SimpleGrid color="gray.700" columns={{ base: 1, sm: 2, md: 1, lg: 3 }} gap={6}>
               {workData.map((project, idx) => (
                 <Box
                   key={idx}
