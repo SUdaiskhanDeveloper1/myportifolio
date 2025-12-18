@@ -131,19 +131,19 @@ const workData = [
   {
     title: "Hostel Management System",
     desc: "A complete system for managing hostels, rooms, students, and payments.",
-    image: "/src/assets/ndma.png",
+    image: "/src/assets/images/ndma.png",
     tech: ["Next.js", "Node.js", "MongoDB"],
   },
   {
     title: "Weather Forecast Dashboard",
     desc: "Real-time weather forecasting using ML and modern UI.",
-    image: "src/assets/pdmas.png",
+    image: "src/assets/images/pdmas.png",
     tech: ["React", "API", "Chart.js"],
   },
   {
     title: "Weather Forecast Dashboard",
     desc: "Real-time weather forecasting using ML and modern UI.",
-    image: "src/assets/pdmas.png",
+    image: "src/assets/images/pdmas.png",
     tech: ["React", "API", "Chart.js"],
   },
 ];
