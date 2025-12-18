@@ -7,10 +7,11 @@ import {
   Icon,
   Image,
   useBreakpointValue,
+  Separator,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { FiPhone, FiMail, FiMapPin } from "react-icons/fi";
-import { FaFacebook, FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 import pic from "../assets/pic.png";
 
 const MotionBox = motion(Box);
@@ -20,21 +21,22 @@ const MotionHStack = motion(HStack);
 export default function Sidebar() {
   const sidebarWidth = useBreakpointValue({
     base: "95%",
-    sm: "70%",
-    md: "40%",
+    sm: "95%",
+    md: "90%",
     lg: "28%",
     xl: "20%",
   });
 
-  const sidebarMt = useBreakpointValue({ base: 4, md: "95px" });
-  const sidebarPadding = useBreakpointValue({ base: 6, md: 10, lg:0 });
+  const sidebarMt = useBreakpointValue({ base: 4, md: "40px" });
+  // const sidebarPadding = useBreakpointValue({ base: 6, md: 10, lg: 0 });
 
   return (
     <MotionBox
-      height="auto"
-      width={sidebarWidth}
+      height={{ base: "90%", sm: "86%", md: "85%", lg: "93%" }}
+      // width={sidebarWidth}
+      width={{ base: "85%", sm: "80%", md: "45%", lg: "25%" }}
       bg="white"
-      p={sidebarPadding}
+      // p={sidebarPadding}
       rounded="xl"
       boxShadow="md"
       mt={sidebarMt}
@@ -44,35 +46,34 @@ export default function Sidebar() {
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
     >
-      <VStack w="100%"  spacing={2}>
-        <MotionHStack
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5 }}
-        >
-          <MotionImage
-            src={pic}
-            boxSize="120px"
-            borderRadius="md"
-            fit="cover"
-            alt="Profile"
-            whileHover={{ scale: 1.07 }}
-            transition={{ duration: 0.99 }}
-          />
-        </MotionHStack>
+      <VStack w="100%">
+
+        <MotionImage
+          src={pic}
+          boxSize="140px"
+          borderRadius="md"
+          fit="cover"
+          alt="Profile"
+          // whileHover={{ scale: 1.07 }}
+          // transition={{ duration: 0.99 }}
+          p={"14px"}
+          rounded="xl"
+        />
+        {/* </MotionHStack> */}
+
+        <div >
+          <Text textAlign="center" fontSize={{ base: "2xl", sm: "xl", md: "xl", lg: "xl" }} fontWeight="bold">
+            Sudais Khan
+          </Text>
+          <Text color="gray.500" fontSize={{ base: "1xl", sm: "2xl", md: "md", lg: "lg" }} fontWeight="bold">
+            Frontend Developer
+          </Text>
+        </div>
 
 
-        <Text fontSize="3xl" fontWeight="bold">
-          Sudais Khan
-        </Text>
-        <Text color="gray.500" fontWeight="bold">
-          Frontend Developer
-        </Text>
-
-        
-        <HStack spacing={1}>
+        <HStack gap={{ base: "4", sm: "10", md: "3", lg: "5" }}>
           {[
-            { icon: FaFacebook, color: "blue.500", bg: "blue.100" },
+
             { icon: FaLinkedin, color: "blue.600", bg: "blue.100" },
             { icon: FaTwitter, color: "blue.400", bg: "blue.100" },
             { icon: FaGithub, color: "gray.600", bg: "gray.100" },
@@ -91,61 +92,97 @@ export default function Sidebar() {
           ))}
         </HStack>
 
-        
+
         <MotionBox
           boxShadow="md"
-          bg="#F2F5F9"
+          // bg="#F2F5F9"
+
+
+          // bg="red"
           rounded="xl"
-          minH="30vh"
-          minW={{ base: "100%", md: 60 }}
-          p={4}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.4, duration: 0.9 }}
+          minH={{ base: "10vh", sm: "20vh", md: "18vh", lg: "28vh" }}
+          w={{ base: "110%", sm: "90%", md: "90%", lg: "90%" }}
+          // minW={{ base: "100%", md: 60 }}
+          gap={0}
+          p={6}
+
         >
-          <VStack spacing={3} gap={4} mt={4}>
+          <VStack
+            alignItems="flex-start"
+          >
 
-            <HStack>
-              <Icon as={FiPhone} color="orange.400" />
-              <Text fontWeight="bold" fontSize="sm">Phone:</Text>
-              <Text fontSize="sm">+9203153633503</Text>
+            <HStack gap={6}>
+              <Icon
+                as={FiPhone}
+                boxSize={{ base: 4, md: 4, lg: 6 }}
+                color="orange.400"
+              />
+
+              <VStack alignItems="flex-start" spacing={0}gap={0}>
+                <Text fontWeight="bold" fontSize={{ base: "xl", md: "base", lg: "md" }}>
+                  Phone:
+                </Text>
+                <Text fontSize={{ base: "xl", md: "base", lg: "md" }}>
+                  +92 0315 3633503
+                </Text>
+              </VStack>
             </HStack>
 
-            <HStack>
-              <Icon as={FiMail} color="orange.400" />
-              <Text fontWeight="bold" fontSize="sm">Gmail:</Text>
-              <Text fontSize="sm">Sudais8075@gmail.com</Text>
+            <HStack gap={6}>
+              <Icon
+                as={FiMail}
+                boxSize={{ base: 4, md: 4, lg: 6 }}
+                color="orange.400"
+              />
+
+              <VStack alignItems="flex-start" spacing={2} gap={0}>
+                <Text fontWeight="bold" fontSize={{ base: "xl", md: "sm", lg: "sm" }}>
+                  Email:
+                </Text>
+                <Text fontSize={{ base: "xl", md: "sm", lg: "md" }}>
+                  Sudais8075@gmail.com
+                </Text>
+              </VStack>
+
+            </HStack>
+            <HStack gap={6}>
+              <Icon as={FiMapPin} boxSize={{ base: "2", md: "2", lg: "6" }} color="orange.400" />
+              <VStack alignItems="flex-start" spacing={2} gap={0}>
+                <Text fontWeight="bold" fontSize={{ base: "1xl", md: "sm", lg: "md" }}>Location:</Text>
+                <Text fontSize={{ base: "1xl", md: "sm", lg: "md" }}>Islamabad, Pakistan</Text>
+              </VStack>
             </HStack>
 
-            <HStack>
-              <Icon as={FiMapPin} color="orange.400" />
-              <Text fontWeight="bold" fontSize="sm">Location:</Text>
-              <Text fontSize="sm">Islamabad, Pakistan</Text>
-            </HStack>
 
+          </VStack>
+          <VStack alignItems="center"
+            textAlign="left">
             <MotionBox
               whileHover={{ scale: 1.08 }}
               transition={{ duration: 0.7 }}
             >
               <Button
                 mt={4}
-                bg="orange.400"
-                color="white"
+                // bg="orange.400"
+                bg="#F65C12"
+                color={"white"}
                 rounded="2xl"
                 _hover={{ bg: "orange.500" }}
+                px={{ base: 4, md: 5, lg: 4 }}
+                py={{ base: 2, md: 5, lg: 4 }}
                 onClick={() => {
                   const link = document.createElement("a");
-                  link.href = "/cv.pdf";   
+                  link.href = "/cv.pdf";
                   link.download = "Sudais-Khan-CV.pdf";
-                  link.click();             
+                  link.click();
                 }}
               >
-                Download My CV
+                Download Resume
               </Button>
             </MotionBox>
-
-
           </VStack>
+
+
         </MotionBox>
       </VStack>
     </MotionBox>

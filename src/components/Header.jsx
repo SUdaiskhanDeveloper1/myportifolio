@@ -14,9 +14,9 @@ export default function Header() {
     <Box justify="space-around" w="100%" >
     <HStack justify="space-between" 
       padding={5}
-      rounded={"lg"}
+      // rounded={"lg"}
       zIndex="10"
-      bg="  #b9c5deff"
+      // bg="  #b9c5deff"
        mb={4}>
 
       <Heading

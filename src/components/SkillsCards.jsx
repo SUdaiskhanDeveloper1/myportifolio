@@ -10,37 +10,73 @@ import {
   Input,
   Textarea,
   Button,
+  Image,
+  Dialog
 } from "@chakra-ui/react";
 
 import { FaCode, FaMobileAlt, FaPenFancy, FaUsers } from "react-icons/fa";
 import { MdHome, MdWork, MdDescription, MdContactMail } from "react-icons/md";
 import { motion } from "framer-motion";
+// import { toaster } from "../App"; 
+
+
 const MotionBox = motion(Box);
+const SkillTag = ({ label }) => (
+  <Box
+    px={4}
+    py={2}
+    border="1px solid"
+    // borderColor="orange.400"
+    color="black"
+    bg={"#e1e8ef"}
+    rounded="full"
+    fontSize="sm"
+    fontWeight="medium"
+    whiteSpace="nowrap"
+  >
+    {label}
+  </Box>
+);
+const TechTag = ({ label }) => (
+  <Box
+    px={3}
+    py={1}
+    border="1px solid"
+    borderColor="orange.400"
+    color="orange.500"
+    rounded="full"
+    fontSize="xs"
+    fontWeight="medium"
+    whiteSpace="nowrap"
+  >
+    {label}
+  </Box>
+);
 
 const homeItems = [
   {
     icon: FaCode,
     title: "Web Development",
     desc: "As a developers, I find myself most captivated by the power find myself myself most captivated by the power find myself most captivated by the power find myself most captivated by the power find myself most captivated by the power find myself most captivated by the power find myself most captivated by the power find myself most captivated by the power  & flexibility of NEXT.js...",
-    color: "orange.100",
+    color: "#FFEBD1",
   },
   {
     icon: FaMobileAlt,
     title: "Problem Solving",
     desc: "I love creating find myself most captivated by the power find myself most captivated by the power find myself most captivated by the powerfind myself most captivated by the powerfind myself most captivated by the powerfind myself most captivated by the powerfind myself most captivated by the powerfind myself most captivated by the power intuitive & efficient applications...",
-    color: "blue.100",
+    color: "#f2f7fe",
   },
   {
     icon: FaPenFancy,
     title: "UI/UX Designing",
     desc: "Crafting intuitive & visually appealing UI/UX find myself most captivated by the power find myself most captivated by the powerfind myself most captivated by the powerfind myself most captivated by the power",
-    color: "yellow.100",
+    color: "#f2f7fe",
   },
   {
     icon: FaUsers,
     title: "Mentorship",
     desc: "I enjoy sharing knowledge with upcoming developers find myself most captivated by the power find myself most captivated by the power find myself most captivated by the power find myself most captivated by the power",
-    color: "red.100",
+    color: "#FFEBD1",
   },
 ];
 
@@ -93,24 +129,45 @@ const resumeData = [
 
 const workData = [
   {
-    title: "E-Commerce Platform",
-    desc: "Built a responsive e-commerce platform using React & Firebase with features like product filtering, cart management, & payment integration.",
-    tech: "React, Firebase, Vite",
+    title: "Hostel Management System",
+    desc: "A complete system for managing hostels, rooms, students, and payments.",
+    image: "/src/assets/ndma.png",
+    tech: ["Next.js", "Node.js", "MongoDB"],
   },
   {
-    title: "Task Management App",
-    desc: "Developed a full-stack task management application with real-time updates & user authentication.",
-    tech: "Next.js, FireBase, React",
+    title: "Weather Forecast Dashboard",
+    desc: "Real-time weather forecasting using ML and modern UI.",
+    image: "src/assets/pdmas.png",
+    tech: ["React", "API", "Chart.js"],
   },
   {
-    title: "Portfolio Website",
-    desc: "Created a modern portfolio website showcasing projects & skills with smooth animations.",
-    tech: "React, Chakra UI, Framer Motion",
+    title: "Weather Forecast Dashboard",
+    desc: "Real-time weather forecasting using ML and modern UI.",
+    image: "src/assets/pdmas.png",
+    tech: ["React", "API", "Chart.js"],
   },
 ];
 
+
 export default function SkillsCards() {
   const [activeTab, setActiveTab] = useState("Home");
+  const [open, setOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+
+  const handleOk = () => {
+    setOpen(false);
+    setFormData({
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    });
+  }
 
   const menu = [
     { label: "Home", icon: MdHome },
@@ -124,21 +181,31 @@ export default function SkillsCards() {
       case "Home":
         return (
           <>
-            <Box p={4} rounded="lg">
+            <Box
+              p={4}
+              rounded="lg"
+              // position="sticky"
+              // top="0px"  
+              // zIndex="1"
+              bg="white"
+            >
               <Heading size="2xl">ABOUT ME</Heading>
               <Text color="gray.700" mt={2}>
-                I'm a frontend developer specializing in building dynamic, responsive, & user-friendly web applications
-                using React,Next.js, HTML, CSS, & JavaScript. Skilled in state management, API integration, & modern UI
-                frameworks, with handson experience in Firebase for authentication, real-time databases.
+                I'm a frontend developer specializing in building dynamic, responsive,
+                & user-friendly web applications using React, Next.js, HTML, CSS, &
+                JavaScript. Skilled in state management, API integration, & modern UI
+                frameworks, with hands-on experience in Firebase for authentication,
+                real-time databases.
               </Text>
             </Box>
 
+
             <Box p={4} rounded="lg">
-              <Heading size="lg" mb={2}>
+              <Heading size="2xl" mb={2}>
                 What I do!
               </Heading>
 
-              <SimpleGrid columns={{ base: 1, md: 1, lg:2 }} gap={6} spacing={6}>
+              <SimpleGrid columns={{ base: 1, md: 1, lg: 2 }} gap={6} spacing={6}>
                 {homeItems.map((item) => (
                   <Box
                     key={item.title}
@@ -149,7 +216,7 @@ export default function SkillsCards() {
                   >
                     <HStack spacing={4}>
                       <Icon as={item.icon} boxSize={8} color="orange.500" />
-                      <Heading size="md">{item.title}</Heading>
+                      <Heading size="lg">{item.title}</Heading>
                     </HStack>
 
                     <Text mt={3} color="gray.700">
@@ -168,77 +235,110 @@ export default function SkillsCards() {
             <Heading size="2xl" mb={2} >
               MY RESUME
             </Heading>
+           
 
-            <VStack align="stretch" spacing={6}  gap={5}>
-              {resumeData.map((section) => (
+            <VStack align="stretch" gap={"5"} spacing={10}>
+              
+              <HStack align="stretch" gap={"5"} spacing={8} wrap="wrap">
+                {resumeData
+                  .filter(
+                    (section) =>
+                      section.category === "Experience" ||
+                      section.category === "Education"
+                  )
+                  .map((section) => (
+                    <Box
+                      key={section.category}
+                      flex="1"
+                      minW={{ base: "100%", md: "48%" }}
+                      bg="blue.50"
+                      p={5}
+                      rounded="xl"
+                      boxShadow="md"
+                      borderLeft="6px solid orange"
+                    >
+                      <Heading size="xl" color="black" mb={4}>
+                        {section.category}
+                      </Heading>
+
+                      <VStack align="stretch" spacing={4}>
+                        {section.items.map((item, idx) => (
+                          <Box
+                            key={idx}
+                            p={4}
+                            bg="white"
+                            rounded="lg"
+                            boxShadow="sm"
+                            border="1px solid #e2e8f0"
+                          >
+                            <Heading size="md" mb={1}>
+                              {item.title}
+                            </Heading>
+
+                            {item.company && (
+                              <Text color="gray.600" fontSize="sm" mb={1}>
+                                {item.company} • {item.duration}
+                              </Text>
+                            )}
+
+                            <Text color="gray.700">{item.desc}</Text>
+                          </Box>
+                        ))}
+                      </VStack>
+                    </Box>
+                  ))}
+              </HStack>
+
+              <HStack align="stretch" spacing={8} gap={"5"} wrap="wrap">
+                
                 <Box
-                  key={section.category}
-                  w="100%"
+                  flex="1"
+                  minW={{ base: "100%", md: "48%" }}
                   bg="blue.50"
-                  p={4}
+                  p={5}
                   rounded="xl"
                   boxShadow="md"
                   borderLeft="6px solid orange"
                 >
-                
-                  <Heading size="xl" color="orange.500"  mb={4}>
-                    {section.category}
+                  <Heading size="xl" color="black" mb={4}>
+                    Work Skills
                   </Heading>
 
-                  
-                  {section.category === "Soft Skills" ? (
-                    <SimpleGrid
-                      columns={{ base: 1, md: 2, lg: 2 }}
-                      spacing={4}
-                      gap={7}
-                    >
-                      {section.items.map((item, idx) => (
-                        <Box
-                          key={idx}
-                          p={4}
-                          bg="white"
-                          rounded="lg"
-                          boxShadow="sm"
-                          border="1px solid #e2e8f0"
-                          _hover={{ boxShadow: "md" }}
-                        >
-                          <Heading size="md" mb={1}>
-                            {item.title}
-                          </Heading>
-                          <Text color="gray.700">{item.desc}</Text>
-                        </Box>
-                      ))}
-                    </SimpleGrid>
-                  ) : (
-                
-                    <HStack align="stretch" gap={7} spacing={4} wrap="wrap">
-                      {section.items.map((item, idx) => (
-                        <Box
-                          key={idx}
-                          p={4}
-                          bg="white"
-                          rounded="lg"
-                          boxShadow="sm"
-                          border="1px solid #e2e8f0"
-                          _hover={{ boxShadow: "md" }}
-                        >
-                          <Heading size="md" mb={1}>
-                            {item.title}
-                          </Heading>
-
-                          {item.company && (
-                            <Text color="gray.600" fontSize="sm" mb={1}>
-                              {item.company} • {item.duration}
-                            </Text>
-                          )}
-
-                          <Text color="gray.700">{item.desc}</Text>
-                        </Box>
-                      ))}
-                    </HStack>
-                  )}
+                  <HStack spacing={4} wrap="wrap" >
+                    {["Next.js", "React", "Typescript", "Git", "Jira", "bitbucket", "HTML5", "CSS 3", "Tailwand CSS", "Javascript", "figma", "Firebase",].map((skill) => (
+                      <SkillTag key={skill} bg={"#e1e8ef"} label={skill} />
+                    ))}
+                  </HStack>
                 </Box>
-              ))}
+
+                <Box
+                  flex="1"
+                  minW={{ base: "100%", md: "48%" }}
+                  bg="blue.50"
+                  p={5}
+                  rounded="xl"
+                  boxShadow="md"
+                  borderLeft="6px solid orange"
+                >
+                  <Heading size="lg" color="black" mb={4}>
+                    Soft Skills
+                  </Heading>
+
+                  <HStack spacing={4} wrap="wrap">
+                    {[
+                      "Time Management",
+                      "Project Management",
+                      "Mentorship",
+                      "Writing",
+                      "Research",
+                      "Flexibility",
+                      "Publications",
+                    ].map((skill) => (
+                      <SkillTag key={skill} label={skill} />
+                    ))}
+                  </HStack>
+                </Box>
+              </HStack>
             </VStack>
           </Box>
         );
@@ -254,22 +354,38 @@ export default function SkillsCards() {
               {workData.map((project, idx) => (
                 <Box
                   key={idx}
-
                   bg="blue.50"
-                  p={6}
                   rounded="xl"
-                  boxShadow="sm"
-                  borderLeft="4px solid orange.500"
+                  boxShadow="md"
+                  overflow="hidden"
+                  _hover={{ boxShadow: "lg" }}
+                  transition="all 0.3s ease"
                 >
-                  <Heading size="md" mb={2}>
-                    {project.title}
-                  </Heading>
-                  <Text color="gray.700" mb={4}>
-                    {project.desc}
-                  </Text>
-                  <Text fontWeight="bold" color="orange.500" fontSize="sm">
-                    Tech Stack: {project.tech}
-                  </Text>
+                  <Image
+                    src={project.image} 
+                    alt={project.title}
+                    h="25vh"
+                    w="100%"
+                    objectFit="fill"
+                  />
+
+                  
+                  <Box p={3} borderLeft="4px solid orange.500">
+                    <Heading size="md" mb={2}>
+                      {project.title}
+                    </Heading>
+
+                    <Text color="gray.700" fontSize="sm" mb={4}>
+                      {project.desc}
+                    </Text>
+
+                    
+                    <HStack spacing={2} wrap="wrap">
+                      {project.tech.map((tech) => (
+                        <TechTag key={tech} label={tech} />
+                      ))}
+                    </HStack>
+                  </Box>
                 </Box>
               ))}
             </SimpleGrid>
@@ -278,19 +394,13 @@ export default function SkillsCards() {
 
       case "Contact":
         return (
-          <Box p={4} alignItems={"center"} textAlign={"center"} rounded="lg" >
+          <Box p={4} textAlign="center" rounded="lg">
             <Heading size="2xl" mb={2}>
               GET IN TOUCH
             </Heading>
 
-            <Box
-              maxW={{ base: "100%", md: "400px" }}
-              mx="auto"
-              textAlign="left"
-            >
-              <VStack spacing={4} align="stretch" w="100%">
-
-
+            <Box maxW={{ base: "100%", md: "400px" }} mx="auto" textAlign="left">
+              <VStack spacing={4} align="stretch">
                 <Box>
                   <Text fontWeight="bold" mb={2}>
                     Full Name:
@@ -300,27 +410,29 @@ export default function SkillsCards() {
                     bg="gray.100"
                     border="none"
                     p={3}
-                    rounded="md"
-                    w="100%"
+                    value={formData.name}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                   />
                 </Box>
-
 
                 <Box>
                   <Text fontWeight="bold" mb={2}>
                     Email:
                   </Text>
                   <Input
+                    type="email"
                     placeholder="Enter your email"
                     bg="gray.100"
                     border="none"
                     p={3}
-                    rounded="md"
-                    type="email"
-                    w="100%"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                   />
                 </Box>
-
 
                 <Box>
                   <Text fontWeight="bold" mb={2}>
@@ -331,11 +443,12 @@ export default function SkillsCards() {
                     bg="gray.100"
                     border="none"
                     p={3}
-                    rounded="md"
-                    w="100%"
+                    value={formData.phone}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                   />
                 </Box>
-
 
                 <Box>
                   <Text fontWeight="bold" mb={2}>
@@ -346,36 +459,26 @@ export default function SkillsCards() {
                     bg="gray.100"
                     border="none"
                     p={3}
-                    rounded="md"
-                    minH="50px"
                     resize="none"
-                    w="100%"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                   />
                 </Box>
 
-                <MotionBox
-                  whileHover={{ scale: 1.08 }}
-                  transition={{ duration: 0.3 }}
+                <Button
+                  bg="orange.500"
+                  color="white"
+                  fontWeight="bold"
+                  _hover={{ bg: "orange.600" }}
+                  // onClick={handleSubmit}
+                  onClick={handleOk}
                 >
-                  <VStack justifyContent="center">
-
-                    <Button
-                      bg="orange.500"
-                      color="white"
-                      fontWeight="bold"
-                      _hover={{ bg: "orange.600" }}
-                      w="60%"
-                      p={3}
-                      rounded="md"
-                    >
-                      Submit
-                    </Button>
-
-                  </VStack>
-                </MotionBox>
+                  Submit
+                </Button>
               </VStack>
             </Box>
-
           </Box>
         );
 
@@ -389,62 +492,69 @@ export default function SkillsCards() {
       <MotionBox
         as={HStack}
         spacing={3}
-        bg="white"
-        px={{ base: 2, md: 3}}
-        py={3}
+        // bg="red"
+        px={{ base: 2, md: 2, }}
+        py={0}
         rounded="md"
-        boxShadow="sm"
-        w={{ base: "100%", md: "fit-content" }}
-        ml={{ base: 0, md: "auto" }}
-        mt={4}
-        mr={{ base: 0, md: 4 }}
-        flexWrap="wrap"
-        justifyContent={{ base: "center", md: "flex-end" }}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8 }}
+        // boxShadow="sm"
+        w={{ base: "100%", sm: "100%", md: "100%", lg: "100%" }}
+        // ml={{ base: 0, }}
+        mt={{ base: "5%", sm: "8%", md: "8.5%", lg: "4%", }}
+        // mr={{ base: 0, }}
+        // flexWrap="wrap"
+        justifyContent={{ base: "center", md: "right", lg: "end" }}
+      // initial={{ opacity: 0 }}
+      // animate={{ opacity: 1 }}
+      // transition={{ duration: 0.8 }}
       >
         {menu.map((item, i) => (
           <MotionBox
             as={HStack}
             key={item.label}
-            px={4}
-            py={2}
-            bg={activeTab === item.label ? "orange.100" : "#E1E8EF"}
+            // px={2}
+            // py={2}
+            p={3}
+            bg={activeTab === item.label ? "#F65C12" : " #c5d0ddff"}
             rounded="md"
             cursor="pointer"
-            whileHover={{ scale: 1.2 }}
-            whileTap={{ scale: 0.98 }}
+            whileHover={{ scale: 0.9 }}
+            color={"white"}
+            // whileTap={{ scale: 0.98 }}
             onClick={() => setActiveTab(item.label)}
-            mr={2}
+            mr={5}
             mb={2}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.5, duration: 0.25 }}
+          // initial={{ opacity: 0, y: 8 }}
+          // animate={{ opacity: 1, y: 0 }}
+          // transition={{ delay: i * 0.5, duration: 0.1 }}
           >
-            <Box as={item.icon} color="orange.400" />
-            <Text fontWeight="small">{item.label}</Text>
+            <VStack gap={0}>
+              <Box as={item.icon} boxSize={{ lg: "8" }} />
+              <Text fontWeight="bold" color={"black"} space={0} fontSize={{ base: "100%", md: "80%", lg: "90%" }}>{item.label}</Text>
+            </VStack>
           </MotionBox>
         ))}
       </MotionBox>
 
 
       <MotionBox
-        w={{ base: "95%", md: "90%", lg: "92%" }}
-        h={{ base: "100%" }}
-        // boxShadow="md"
-        backgroundColor="white"
-        // p={{ base: 4, md: 6 }}
-        mx={{ base: "scroll", md: 20 }}
+        w={{ base: "95%", md: "80%", lg: "90%" }}
+        h={{ base: "auto", lg: "68vh" }}
+        overflowY={{ base: "visible", md: "auto", lg: "auto" }}
+        sx={{
+          scrollbarWidth: { lg: "none" },
+          "&::-webkit-scrollbar": {
+            display: { lg: "none" },
+          },
+        }}
+        mx={{ base: 0, md: 20 }}
         rounded="xl"
-        // overflowY="scroll"
-        maxH="100%"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4 }}
       >
         {renderContent()}
       </MotionBox>
+
 
     </>
   );

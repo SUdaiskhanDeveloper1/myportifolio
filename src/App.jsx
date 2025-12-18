@@ -8,13 +8,14 @@ export default function App() {
   return (
     <Box w="100%" h="99vh" display="flex" flexDirection="column" >
       <Header />
-      <Stack direction={{ base: "column", md: "row" }} align="stretch"
+      <Stack direction={{ base: "column", sm:"column", md: "row", lg:"row" }} align="stretch"
        spacing={6} flex={1} minH={0}>
         <Sidebar />
         <VStack align="stretch" spacing={6} flex={1} minH={0}>
           <SkillsCards />
         </VStack>
       </Stack>
+      
     </Box>
   );
 }
