@@ -189,7 +189,9 @@ export default function SkillsCards() {
               // position="sticky"
               // top="0px"  
               // zIndex="1"
-              bg="white"
+              // bg="white"
+              // bg="var(--text-color)"
+              
             >
               <Heading color="gray.700" size="2xl">ABOUT ME</Heading>
               <Text color="gray.700" mt={2}>
@@ -514,7 +516,7 @@ export default function SkillsCards() {
         rounded="md"
         ml={{ base: "7%", sm: "0%", md: "8%", lg: "8%" }}
         // boxShadow="sm"
-        w={{ base: "90%", sm: "100%", md: "100%", lg: "90%" }}
+        w={{ base: "90%", sm: "100%", md: "100%", lg: "88%" }}
         //  h={{ base: "90%", sm: "100%", md: "100%", lg: "10%" }}
         // ml={{ base: 0, }}
         mt={{ base: "5%", sm: "8%", md: "8.5%", lg: "4%", }}
@@ -558,7 +560,7 @@ export default function SkillsCards() {
 
 
       <MotionBox
-        w={{ base: "100%", md: "80%", lg: "90%" }}
+        w={{ base: "100%", md: "80%", lg: "88%" }}
         h={{ base: "auto", lg: "68vh" }}
         // bg={"red"}
         overflowY={{ base: "visible", md: "auto", lg: "auto" }}
