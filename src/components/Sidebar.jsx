@@ -122,7 +122,7 @@ export default function Sidebar() {
                   Email:
                 </Text>
                 <Text fontSize={{ base: "xl", sm: "base", md: "base", lg: "md" }}>
-                  Sudais875@gmail.com
+                  Sudais8075@gmail.com
                 </Text>
               </VStack>
             </HStack>
