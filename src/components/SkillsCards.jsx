@@ -13,8 +13,9 @@ import {
   Image,
   Dialog
 } from "@chakra-ui/react";
-import pdmas from "../assets/images/pdmas.png";
-import ndma  from "../assets/images/ndma.png";
+import ecommerce from "../assets/images/ecommerce.png";
+import  shoes from "../assets/images/shoes.png";
+import laptop from "../assets/images/laptop.png";
 
 import { FaCode, FaMobileAlt, FaPenFancy, FaUsers } from "react-icons/fa";
 import { MdHome, MdWork, MdDescription, MdContactMail } from "react-icons/md";
@@ -131,21 +132,21 @@ const resumeData = [
 
 const workData = [
   {
-    title: "Hostel Management System",
-    desc: "A complete system for managing hostels, rooms, students, and payments.",
-    image: ndma,
+    title: "Ecommerence Online store",
+    desc: "A complete system for managing products, orders, customers, and payments.",
+    image: ecommerce,
     tech: ["Next.js", "Node.js", "MongoDB"],
   },
   {
-    title: "Weather Forecast Dashboard",
-    desc: "Real-time weather forecasting using ML and modern UI.",
-    image: pdmas,
+    title: "Laptop Shop Management System",
+    desc: "A complete POS and inventory solution designed for laptop retailers to track stock, manage sales, and handle customer invoices efficiently ",
+    image: laptop,
     tech: ["React", "API", "Chart.js"],
   },
   {
-    title: "Weather Forecast Dashboard",
-    desc: "Real-time weather forecasting using ML and modern UI.",
-    image: pdmas,
+    title: "Online shoes store",
+    desc: "An online store for selling shoes with product listings, shopping cart, and checkout functionality.",
+    image: shoes,
     tech: ["React", "API", "Chart.js"],
   },
 ];
